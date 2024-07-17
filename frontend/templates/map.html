@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        function initMap() {
+            var map = L.map('map').setView([0, 0], 2);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            map.on('click', function(event) {
+                var lat = event.latlng.lat;
+                var lng = event.latlng.lng;
+
+                window.location.href = `/news?region=us&language=en`;
+            });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <h1>Select Region</h1>
+    <div id="map"></div>
+</body>
+</html>
