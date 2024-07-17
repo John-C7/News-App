@@ -125,4 +125,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-APIKEY = "Your API Key"
+APIKEY = "0bf24014ff4f48dfae36be1e03ef5975"
+
+LOGIN_REDIRECT_URL = 'feed'
+LOGOUT_REDIRECT_URL = 'login'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
